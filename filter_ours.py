@@ -19,8 +19,7 @@ def label_process(image_path,label_path,save_path):
 	for label_txt in labeltxt_list:
 		if label_txt=="":
 			continue
-		image_name=os.path.splitext(label_txt)[0]
-		image_name=os.path.splitext(image_name)[0]+".jpg"
+		image_name = os.path.splitext(label_txt)[0]
 		img=cv2.imread(os.path.join(image_path,image_name))
 		size=[img.shape[1],img.shape[0]]
 		label_txt_path=os.path.join(label_path,label_txt)
@@ -42,6 +41,6 @@ def label_process(image_path,label_path,save_path):
 
 
 if __name__=="__main__":
-	label_process("/opt/jl/datasets/car_plate/plate-2017-7-18/images",
-		"/opt/jl/datasets/car_plate/plate-2017-7-18/labels",
-		"/opt/jl/datasets/car_plate/plate-2017-7-18/change_labels")
+	label_process("/opt/jl/datasets/car_plate/plate_train/two_line_plate",
+		"/opt/jl/datasets/car_plate/plate_train/two_line_label",
+		"/opt/jl/datasets/car_plate/plate_train/change_label")
