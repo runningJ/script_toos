@@ -6,9 +6,6 @@
 # Created Time: 2016年04月12日 星期二 15时42分46秒
 # Copyright Nanjing Qing So information technology
 #########################################################################
-
-from skimage import color
-from skimage import io
 from PIL import Image
 from PIL import ImageEnhance
 import numpy as np
@@ -25,7 +22,7 @@ class Data_augmentor(object):
         img_enhance=ImageEnhance.Brightness(img)
         res=img_enhance.enhance(factor)
         method_name='bright'
-        return res,method_name
+        return res, method_name
 
     def change_contrast(self,img_path,factor):
         '''change image contrast factor:0.0:solid grey image,1.0:original'''
@@ -65,11 +62,11 @@ class Data_augmentor(object):
 
 if __name__=="__main__":
     plt.subplot(121)
-    ori=plt.imread('/opt/jl/datasets/car_plate/train/images/160.jpg')
+    ori=plt.imread('/opt/datasets/same_car_image/ori_image/License_85/4404000000002940777727.jpg')
     plt.imshow(ori)
 ##############################################
     da=Data_augmentor()
-    res,_=da.change_brightness('/opt/jl/datasets/car_plate/train/images/160.jpg',0.5)
+    res,_=da.change_sharpness('/opt/datasets/same_car_image/ori_image/License_85/4404000000002940777727.jpg',1.5)
     res=np.array(res)
     plt.subplot(122)
     plt.imshow(res) 
