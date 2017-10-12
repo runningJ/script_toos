@@ -55,6 +55,6 @@ def do_trans(image_folder,label_folder,save_label):
 
 
 if __name__=="__main__":
-	do_trans("/opt/jl/datasets/car_plate/plate_train/images",
-		"/opt/jl/datasets/car_plate/plate_train/labels",
-		"/opt/jl/datasets/car_plate/plate_train/save_labels")
+	do_trans("/opt/jl/datasets/attribute_train/images",
+		"/opt/jl/datasets/attribute_train/labels",
+		"/opt/jl/datasets/attribute_train/save_labels")

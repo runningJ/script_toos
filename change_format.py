@@ -10,10 +10,9 @@ def change_format(images_folder,out_put_folder):
 		save_name=image_name+".jpg"
 		if not os.path.exists(out_put_folder):
 			os.mkdir(out_put_folder)
-		else:
-			save_path=os.path.join(out_put_folder,save_name)
-			cv2.imwrite(save_path,img)
+		save_path=os.path.join(out_put_folder,save_name)
+		cv2.imwrite(save_path,img)
 
 if __name__=="__main__":
-	change_format("/superdb/jl/pedestrians128x64/images",
-		'/superdb/jl/pedestrians128x64/change_images')
+	change_format("/opt/jl/datasets/car_plate/plate_train/two_line_plate",
+		'/opt/jl/datasets/car_plate/plate_train/change_format')

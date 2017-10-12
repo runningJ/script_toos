@@ -49,5 +49,5 @@ def generate_val(images_path,save_path):
 
 if __name__=="__main__":
 	#generate_val("/superdb/jl/datasets/test/images","/superdb/jl/datasets/test")
-	generate_train("/opt/jl/datasets/car_plate/plate_train/images",
-		"/opt/jl/datasets/car_plate/plate_train/")
+	generate_train("/opt/jl/datasets/car_plate/crop_plate_train/images",
+		"/opt/jl/datasets/car_plate/crop_plate_train")

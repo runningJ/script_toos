@@ -1,10 +1,27 @@
 import cv2
 import os
 
+
+def do_crop_image(images_folder,save_folder,factor):
+	if not os.path.exists(save_folder):
+		os.mkdir(save_folder)
+	images_list = os.listdir(images_folder)
+	for image in images_list:
+		if image == "":
+			continue
+		image_path = os.path.join(images_folder, image)
+		img_mat = cv2.imread(image_path)
+		img_height = img_mat.shape[0]
+		if img_height == 0:
+			continue
+		img_width = img_mat.shape[1]
+		crop_img = img_mat[int(factor*img_height):img_height,:,:]
+		image_save_path = os.path.join(save_folder, image)
+		cv2.imwrite(image_save_path, crop_img)
+
 '''
 This function is used to process label images
 '''
-
 def crop_image_label(images_folder,labels_folder,factor,save_folder):
 
 	image_save_folder = os.path.join(save_folder,"images")
@@ -47,7 +64,7 @@ def crop_image_label(images_folder,labels_folder,factor,save_folder):
 				center_h = float(line_content[4])
 				center_y = (center_y - factor)/(1-factor)
 				center_h = center_h/(1-factor)
-				trans_label = str(each_label)+" "+str(center_x)+" "+str(center_y)+" "+str(center_w)+" "+str(center_h)
+				trans_label = str(each_label)+" "+str(center_x)+" "+str(center_y)+" "+str(center_w)+" "+str(center_h)+"\r\n"
 				fw.write(trans_label)
 				
 				'''
@@ -66,6 +83,11 @@ def crop_image_label(images_folder,labels_folder,factor,save_folder):
 
 
 if __name__ == "__main__":
-	crop_image_label("/opt/jl/datasets/car_plate/plate_train/images",
-		"/opt/jl/datasets/car_plate/plate_train/labels",0.5,
-		"/opt/jl/datasets/car_plate/crop_plate_train")
+	
+	do_crop_image("/opt/jl/datasets/car_plate/plate_2017_10_10_no",
+		"/opt/jl/datasets/car_plate/plate_2017_10_10_no_factor",0.5)
+	'''
+	crop_image_label("/opt/jl/datasets/car_plate/plate_2017_10_1",
+		"/opt/jl/datasets/car_plate/change_labels",0.5,
+		"/opt/jl/datasets/car_plate/crop")
+	'''

@@ -2,6 +2,9 @@ import os
 import shutil
 
 def check(image_path,label_path):
+	'''
+	for ours labels
+	'''
 	image_list=os.listdir(image_path)
 	for image in image_list:
 		coord_label=image+".txt"
@@ -21,6 +24,9 @@ def check(image_path,label_path):
 
 
 def check_version(image_path,label_path):
+	'''
+	for yolo labels
+	'''
 	image_list=os.listdir(image_path)
 	for image in image_list:
 		coord_label=os.path.splitext(image)[0]+".txt"
@@ -42,5 +48,5 @@ def check_version(image_path,label_path):
 			print absolute_path
 
 if __name__=="__main__":
-	check("/opt/jl/datasets/car_plate/plate-2017-7-18/images",
-		"/opt/jl/datasets/car_plate/plate-2017-7-18/labels")
+	check("/opt/jl/datasets/car_plate/plate_train/images",
+		"/opt/jl/datasets/car_plate/plate_train/labels")

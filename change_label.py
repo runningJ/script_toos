@@ -18,6 +18,6 @@ def change(label_path,save_path,old_num,new_num):
 				fw.write(each_line)
 
 if __name__=="__main__":
-	change("/opt/jl/datasets/car_plate/test/labels",
-		"/opt/jl/datasets/car_plate/test/change_labels",
-		"1","0")
+	change("/opt/jl/datasets/attribute_train/labels",
+		"/opt/jl/datasets/attribute_train/filter_labels",
+		"8","5")
