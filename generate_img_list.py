@@ -19,5 +19,5 @@ def generateimglist(path,output):
 				f.write(imgpath+'\n')
 
 if __name__ == "__main__":
-	generateimglist("/opt/jl/datasets/result_0911",
-		"/opt/jl/datasets/feature_path/result_0911.txt")
+	generateimglist("/opt/jl/datasets/car_retrieval_test/search_images",
+		"/opt/jl/datasets/car_retrieval_test/search.txt")

@@ -16,4 +16,4 @@ def rename(folder_path):
 
 
 if __name__=="__main__":
-	file_in_folder("/opt/jl/datasets/car_plate/plate_2017_10_10_no")
+	file_in_folder("/opt/jl/datasets/car_retrieval_test/negative")
