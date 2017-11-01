@@ -41,6 +41,6 @@ def label_process(image_path,label_path,save_path):
 
 
 if __name__=="__main__":
-	label_process("/opt/jl/datasets/car_plate/plate_2017_10_1",
-		"/opt/jl/datasets/car_plate/palte_2017_10_1_labels",
-		"/opt/jl/datasets/car_plate/change_labels")
+	label_process("/opt/jl/datasets/new_attribute/train/images",
+		"/opt/jl/datasets/new_attribute/train/labels",
+		"/opt/jl/datasets/new_attribute/train/change_labels")

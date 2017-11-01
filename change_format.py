@@ -14,5 +14,5 @@ def change_format(images_folder,out_put_folder):
 		cv2.imwrite(save_path,img)
 
 if __name__=="__main__":
-	change_format("/opt/jl/datasets/car_plate/plate_train/two_line_plate",
-		'/opt/jl/datasets/car_plate/plate_train/change_format')
+	change_format("/opt/jl/datasets/car_face/train/car_train",
+		'/opt/jl/datasets/car_face/train/change_format')

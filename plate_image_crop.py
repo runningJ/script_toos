@@ -1,7 +1,9 @@
 import cv2
 import os
 
-
+'''
+This function is used to crop image along height
+'''
 def do_crop_image(images_folder,save_folder,factor):
 	if not os.path.exists(save_folder):
 		os.mkdir(save_folder)
@@ -18,6 +20,27 @@ def do_crop_image(images_folder,save_folder,factor):
 		crop_img = img_mat[int(factor*img_height):img_height,:,:]
 		image_save_path = os.path.join(save_folder, image)
 		cv2.imwrite(image_save_path, crop_img)
+
+'''
+This function is used to crop image along width
+'''
+
+def do_crop_image_width(image_folder,save_folder,factor):
+	str_factor = str(factor).replace('.','-')
+	if not os.path.exists(save_folder):
+		os.mkdir(save_folder)
+	images_list = os.listdir(image_folder)
+	for image in images_list:
+		if image == "":
+			continue
+		image_path = os.path.join(image_folder, image)
+		img_mat = cv2.imread(image_path)
+		img_width = img_mat.shape[1]
+		if img_width == 0:
+			crop_img = img_mat[:,0:int(factor*img_width),:]
+			image_save_path = os.path.join(save_folder,image) + "_" + str_factor
+			cv2.imwrite(image_save_path,crop_img)
+
 
 '''
 This function is used to process label images

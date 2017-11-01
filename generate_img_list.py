@@ -15,9 +15,15 @@ def generateimglist(path,output):
 		for subflod in os.listdir(path):
 			subpath=os.path.join(path,subflod)
 			for img in os.listdir(subpath):
-				imgpath=os.path.join(subpath,img)
-				f.write(imgpath+'\n')
+				if os.path.splitext(img)[0] != "":
+					imgpath=os.path.join(subpath,img)
+					f.write(imgpath+'\n')
+def generateimglist_file(path,output):
+	with open(output,'w') as f:
+		for img in os.listdir(path):
+			img_path = os.path.join(path,img)
+			f.write(img_path+'\n')
 
 if __name__ == "__main__":
-	generateimglist("/opt/jl/datasets/car_retrieval_test/search_images",
-		"/opt/jl/datasets/car_retrieval_test/search.txt")
+	generateimglist("/opt/jl/datasets/chekuan_1",
+		"/opt/jl/datasets/feature_path/chekuan_1.txt")

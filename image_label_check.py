@@ -48,5 +48,5 @@ def check_version(image_path,label_path):
 			print absolute_path
 
 if __name__=="__main__":
-	check("/opt/jl/datasets/car_plate/plate_train/images",
-		"/opt/jl/datasets/car_plate/plate_train/labels")
+	check("/opt/jl/datasets/new_attribute/train/images",
+		"/opt/jl/datasets/new_attribute/train/labels")

@@ -9,11 +9,25 @@ def file_in_folder(folder_path):
 		os.rename(os.path.join(folder_path,file),
 			os.path.join(folder_path,new_name))
 
+def rename_file(folder_path, name):
+	file_list = os.listdir(folder_path)
+	for file in file_list:
+		file_base,file_ext = os.path.splitext(file)
+		if file_base != "ssss":
+			new_name = name+file_ext
+			os.rename(os.path.join(folder_path,file),
+				os.path.join(folder_path,new_name))
+
 def rename(folder_path):
-	subfolder_list=os.listdir(folder_path)
+	subfolder_list = os.listdir(folder_path)
 	for subfolder in subfolder_list:
-		file_in_folder(os.paht.join(folder_path,subfolder))
+		file_in_folder(os.path.join(folder_path,subfolder))
+
+def rename_folder(folder_path, name):
+	subfolder_list = os.listdir(folder_path)
+	for subfolder in subfolder_list:
+		rename_file(os.path.join(folder_path,subfolder),name)
 
 
 if __name__=="__main__":
-	file_in_folder("/opt/jl/datasets/car_retrieval_test/negative")
+	rename("/opt/jl/generate-plate/images/results")
